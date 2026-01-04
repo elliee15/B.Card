@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>B.Card</title>
-
 <style>
 body{
   margin:0;
@@ -11,48 +10,43 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  background:linear-gradient(120deg,#ff9a9e,#fad0c4,#fad0c4);
+  background:linear-gradient(120deg,#ff9a9e,#fad0c4,#fbc2eb,#a18cd1);
   background-size:300% 300%;
-  animation:bgMove 8s infinite;
+  animation:bgmove 10s ease infinite;
   font-family:sans-serif;
+  color:white;
 }
-@keyframes bgMove{
+
+@keyframes bgmove{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
-.card{
-  background:white;
-  padding:2rem 3rem;
+
+#startBtn{
+  padding:14px 24px;
   border-radius:20px;
-  text-align:center;
-}
-button{
   border:none;
-  background:#ff6f91;
-  color:white;
-  padding:10px 20px;
-  border-radius:20px;
+  font-size:16px;
 }
 </style>
 </head>
-
 <body>
 
-<div class="card">
-  <h1>Coming Soon</h1>
-  <p>Website is under construction.</p>
-  <button onclick="playMusic()">Play Music 🎵</button>
-</div>
+<button id="startBtn">Tap to Start 🎂</button>
 
 <audio id="bgMusic" loop>
-  <source src="Birthday.mp3" type="audio/mpeg">
+  <source src="./Birthday.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-function playMusic(){
-  document.getElementById("bgMusic").play();
-}
+const btn = document.getElementById("startBtn");
+const music = document.getElementById("bgMusic");
+
+btn.addEventListener("click", ()=>{
+  music.play();
+  btn.style.display="none";
+});
 </script>
 
 </body>
